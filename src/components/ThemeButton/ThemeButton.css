@@ -1,0 +1,40 @@
+#theme-button {
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    position: absolute;
+    right: .5rem;
+    top: .4rem;
+    cursor: pointer;
+}
+
+#theme-icon-sun {
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+#theme-icon-moon {
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+#theme-button:hover {
+    animation: jiggle 2s ease-in-out infinite;
+}
+
+@keyframes jiggle {
+    20% {
+        transform: rotate(60deg)
+    }
+    50% {
+        transform: rotate(-50deg)
+    }
+    75% {
+        transform: rotate(20deg)
+    }
+    100% {
+        transform: rotate(-5deg)
+    }
+  }
