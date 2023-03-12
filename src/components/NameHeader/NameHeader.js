@@ -4,7 +4,7 @@ import './NameHeader.css';
 
 export default function NameHeader( {routePath} ) {
 
-    const [headerPosition, setHeaderPosition] = useState('');
+    const [headerPosition, setHeaderPosition] = useState('headerCentered');
     const [movement, setMovement] = useState('');
     const [size, setSize] = useState('');
     const [visibility, setVisibility] = useState('');
@@ -12,16 +12,18 @@ export default function NameHeader( {routePath} ) {
     useEffect(() => {
         if (routePath === '/' && routePath.length < 2) {
             setHeaderPosition('headerCentered')
-            setMovement('move-to-centre');
-            setSize('size-up');
-            setVisibility('fade-in');
+            if (movement === 'move-top-left') {
+                setMovement('move-to-centre');
+                setSize('size-up');
+                setVisibility('fade-in');
+            }
         } else {
             setHeaderPosition('headerTopLeft')
             setMovement('move-top-left');
             setSize('size-down');
             setVisibility('fade-out');
         };
-    }, [routePath]);
+    }, [routePath, movement]);
 
   return (
     <div id='name-header' className={`${headerPosition} ${movement}`}>
