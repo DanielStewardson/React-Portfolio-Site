@@ -1,0 +1,16 @@
+#navbar {
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 1rem;
+    left: 1rem;
+}
+
+#navbar a.active {
+    text-decoration: line-through;
+}
+
+#navbar a {
+    margin: .2rem 0;
+}
