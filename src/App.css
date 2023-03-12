@@ -1,13 +1,15 @@
 .dark {
     --color-background: rgb(26, 25, 25);
     --color-font: rgb(241, 234, 234);
-    --boldness: 200;
+    --font-wieght: 200;
+    --font-wieght-bold: 400;
 }
 
 .light {
     --color-background: rgb(251, 247, 247);
     --color-font: rgb(21, 21, 21);
-    --boldness: 400;
+    --font-wieght: 400;
+    --font-wieght-bold: 500;
 }
 
 .App {
@@ -15,7 +17,7 @@
     width: 100VW;
     background-color: var(--color-background);
     color: var(--color-font);
-    font-weight: var(--boldness);
+    font-weight: var(--font-wieght);
 }
 
 #content-box {
