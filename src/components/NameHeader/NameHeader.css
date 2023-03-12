@@ -1,0 +1,89 @@
+#name-header {
+    z-index: 9;
+    position: absolute;
+}
+
+.headerCentered {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.headerCentered h1 {
+    font-size: 4rem;
+}
+
+.headerTopLeft {
+    top: 1rem;
+    left: 1rem;
+    transform: translate(0%, 0%);
+}
+
+.headerTopLeft h1 {
+    font-size: 2rem;
+}
+
+.headerTopLeft #welcome-message {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#welcome-message {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.move-top-left {
+    transition: left 1s ease-in-out .4s, top 1s ease-in-out .4s, transform 1s ease-in-out .4s;
+}
+
+.move-to-centre {
+    transition: left 1s ease-in-out, top 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.size-down {
+    transition: font-size 1s ease-in-out .4s;
+}
+
+.size-up {
+    transition: font-size 1s ease-in-out;
+}
+
+.fade-in {
+    transition: opacity .4s ease-in-out 1s, visibility .4s ease-in-out 1s;
+}
+
+.fade-out {
+    transition: opacity .4s ease-in-out, visibility .4s ease-in-out;
+}
+
+#call-to-action-buttons {
+    margin-top: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: var(--font-wieght-bold);
+}
+
+#call-to-action-buttons a {
+    position: relative;
+}
+
+#call-to-action-buttons a::after {
+    content: '';
+    position: absolute;
+    background-color: var(--color-font);
+    height: .1rem;
+    border-radius: 5px;
+    width: 0;
+    left: 0;
+    bottom: -.4rem;
+    transition: width .2s ease-in-out
+}
+
+#call-to-action-buttons a:hover::after {
+    width: 110%;
+}
