@@ -1,16 +1,81 @@
-#navbar {
+.menuButton {
+    z-index: 10;
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    cursor: pointer;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    width: 1.4rem;
+    height: 1.3rem;
+    transition: .8s ease-in-out;
+}
+
+.menuButton span {
+    display: block;
+    position: absolute;
+    height: .1rem;
+    width: 100%;
+    background-color: var(--color-font);
+    transition: .4s ease-out;
+}
+
+.menuButton span::after,
+.menuButton span::before {
+    content: '';
+    position: absolute;
+    display: block;
+    height: .1rem;
+    width: 100%;
+    transition: .4s ease-out;
+    background-color: var(--color-font);
+}
+
+.menuButton span::after {
+    top: .5rem;
+}
+
+.menuButton span::before {
+    bottom: .5rem;
+}
+
+.menu-spin span {
+    transform: rotate(45deg);
+}
+.menu-spin span::before {
+    bottom: 0;
+}
+.menu-spin span::after {
+    transform: rotate(90deg);
+    top: 0;
+}
+
+/* ---------------------NavList----------------------- */
+
+.navbar {
     z-index: 10;
     position: absolute;
     display: flex;
     flex-direction: column;
-    top: 1rem;
+    top: 4rem;
     left: 1rem;
+    transition: .8s ease-in-out;
 }
 
-#navbar a.active {
+.hide-menu {
+    opacity: 0;
+    visibility: hidden;
+}
+.show-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.navbar a.active {
     text-decoration: line-through;
 }
 
-#navbar a {
+.navbar a {
     margin: .2rem 0;
 }

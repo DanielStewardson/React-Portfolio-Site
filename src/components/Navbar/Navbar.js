@@ -1,39 +1,50 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 
-export default function Navbar() {
+export default function Navbar( { routePath } ) {
 
-    const {pathname} = useLocation();
-
-    const [showMenu, setShowMenu] = useState(false);
+    const [showMenu, setShowMenu] = useState('');
+    const [showMenuButton, setShowMenuButton] = useState('');
 
     useEffect(() => {
-        if (pathname === '/' && pathname.length < 2) {
-            setShowMenu(false);
+        if (routePath === '/' && routePath.length < 2) {
+            setShowMenu('hide-menu');
+            setShowMenuButton('show-menu');
         } else {
-            setShowMenu(true);
+            setShowMenu('show-menu');
+            setShowMenuButton('hide-menu');
+        };
+    }, [routePath]);
+
+    const navButtonSpin = () => {
+        let menuButt = document.querySelector('.menuButton');
+        if (menuButt.classList.contains('menu-spin')) {
+            menuButt.classList.remove('menu-spin');
+            setShowMenu('hide-menu');
+        } else {
+            menuButt.classList.add('menu-spin');
+            setShowMenu('show-menu');
         }
-    }, [pathname]);
+    };
 
-    console.log(pathname);
-    console.log(showMenu);
+    const fullNavBar =    
+        <div className={`navbar ${showMenu}`}>
+            <NavLink to='/'>Home</NavLink>
+            <NavLink to='/Projects'>Projects</NavLink>
+            <NavLink to='/About'>Info</NavLink>
+            <NavLink to='/Contact'>Contact</NavLink>
+        </div>
 
-    const navbar = showMenu ?
-    <div  id='navbar'>
-        <NavLink to='/'>Home</NavLink>
-        <NavLink to='/Projects'>Projects</NavLink>
-        <NavLink to='/About'>Info</NavLink>
-        <NavLink to='/Contact'>Contact</NavLink>
-    </div>
-    :
-    <div  id='navbar'>
-        Burger
-    </div>
+    const menuButton = 
+        <div className={`menuButton ${showMenuButton}`} onClick={navButtonSpin}>
+            <span></span>
+        </div>
 
   return (
     <>
-        {navbar}
+        {showMenuButton && menuButton}
+        {showMenu && fullNavBar}
     </>
   )
 }
