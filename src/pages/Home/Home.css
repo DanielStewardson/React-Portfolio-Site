@@ -1,0 +1,45 @@
+#home {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#welcome-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#welcome-message h1 {
+    font-size: 4rem;
+}
+
+#call-to-action-buttons {
+    margin-top: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: 600;
+}
+
+#call-to-action-buttons a {
+    position: relative;
+}
+
+#call-to-action-buttons a::after {
+    content: '';
+    position: absolute;
+    background-color: var(--color-font);
+    height: .1rem;
+    border-radius: 5px;
+    width: 0;
+    left: 0;
+    bottom: -.5rem;
+    transition: width .2s ease-in-out
+}
+
+#call-to-action-buttons a:hover::after {
+    width: 110%;
+}
