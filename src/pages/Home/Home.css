@@ -1,9 +1,2 @@
-#home {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;  /*Change after headerName complete */
-    justify-content: flex-end;
-    align-items: center;
+.homepage {
 }
